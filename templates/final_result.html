@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Result Page</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .result-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .result-heading {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .result-content {
+        font-size: 18px;
+        text-align: center;
+      }
+
+      .result-content span {
+        color: #007bff;
+      }
+
+      .goback-button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 20px;
+      }
+
+      .goback-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="result-container">
+      <h1 class="result-heading">Result Page</h1>
+
+      {% if final_result > 1000 %}
+      <h2 class="result-content"><span>${{final_result}}</span></h2>
+      <p class="result-content">
+        "The price of this diamond is reaching for the stars... or at least the
+        upper atmosphere!"
+      </p>
+      {% elif final_result > 500 %}
+      <h2 class="result-content"><span>${{final_result}}</span></h2>
+
+      <p class="result-content">
+        Breaking news: This diamond is the VIP of bling, and its price is the
+        hottest ticket in town! Get ready to laugh all the way to the jewelry
+        store with a tag of <span>{{final_result}}</span>. Who knew humor could
+        be this dazzling.
+      </p>
+      {% else %}
+      <h2 class="result-content"><span>${{final_result}}</span></h2>
+      <p class="result-content">What a steal! This diamond is a great deal.</p>
+      {% endif %}
+    </div>
+    <a href="javascript:history.go(-1)" class="goback-button">Go Back</a>
+  </body>
+</html>
